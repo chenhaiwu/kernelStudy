@@ -1,4 +1,4 @@
-obj-m:=helloworld.o
+obj-m:=v2p_addr.o
 
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
