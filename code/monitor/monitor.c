@@ -96,14 +96,14 @@ static void check_load(void)
     u64 ms;
     int load = LOAD_INT(ptr_avenrun[0]); /* 最近1分钟的Load值 */
 
-    if (load < 3)
+    if (load < 1)
         return;
 
     /**
-	 * 如果上次打印时间与当前时间相差不到20秒，就直接退出
+	 * 如果上次打印时间与当前时间相差不到3秒，就直接退出
 	 */
     ms = ktime_to_ms(ktime_sub(ktime_get(), last));
-    if (ms < 20 * 1000)
+    if (ms < 3 * 1000)
         return;
 
     last = ktime_get();
