@@ -1,6 +1,17 @@
 ﻿# KernelStudy
 用于研究linux kernel的多模块实现
 
+[2020-5-24] add a share irq with tasklet handler.
+CH: 
+1：增加一个内核模块，共享一根中断线，用于调试了解中断申请及释放的接口。
+2：中断可以分为上下半部，下半部使用tasklet来处理。
+
+[2020-5-18] add a monitor to watch cpu loading by uptime.
+CH: 
+1：增加一个内核模块，使用uptime中的一个全局变量，取出全局变量表示1分钟的负载。
+2：负载大于3，则打印所有进程的所有的task信息。
+3：创建一个hrtimer的定时器，使用到时的方式，每隔10ms检查一下负载信息。
+
 [2020-5-17]
 EN: add a kernel moduel to print task_struct key info.
 CH: 
