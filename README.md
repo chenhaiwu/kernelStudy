@@ -1,6 +1,17 @@
 ﻿# KernelStudy
 用于研究linux kernel的多模块实现
 
+
+[2020-5-31] add a module for mmap and r/w from userspace.
+CH: 
+1：增加一个内核模块，初始化时申请一块vmalloc内存，（内核虚拟地址、物理地址、pfn的转换，vmalloc_to_page的各种转化）。
+2：设置page reserved，不让swap出去。
+3: 注册一个字符设备mknod /dev/my_memmap_dev -c 240 0，并在初始化时register_chrdev
+4: 打开字符设置，并设置mmap的方法vm_operations_struct my_memmap_vm_ops。
+5：在vmf中实现个人的fault函数：入参vmf_fault，中有用户态地址：vmf->address，可以与内核申请的地址做offset, vmf->pgoff，是个整数表示在整段中处于第几页。
+   通过这些可以求出pfn, kaddr, 等。
+6：在/proc/pid/maps/中可以看到对应的内存映射。
+
 [2020-5-24] add a share irq with tasklet handler.
 CH: 
 1：增加一个内核模块，共享一根中断线，用于调试了解中断申请及释放的接口。
