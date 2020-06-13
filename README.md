@@ -1,6 +1,11 @@
 ﻿# KernelStudy
 用于研究linux kernel的多模块实现
 
+[2020-6-9] [list] add a module of list operating.
+CH: 
+1：增加一个内核模块，专用于学习list的操作，包括add/modify/del/遍历。
+
+
 [2020-5-31] [tools] add a module for rmmod put one module to release the module.
 CH: 
 1：增加一个小工具，用于+-内核模块的引用计数。
