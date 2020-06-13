@@ -1,6 +1,12 @@
 ﻿# KernelStudy
 用于研究linux kernel的多模块实现
 
+[2020-6-13] [list] add 2 module of cdev/misc dev.
+CH: 
+1：增加1个cdev字符设备的模块，用户了解cdev如何创建成功，注意测试时，需要mknod /dev/my_cdev c 240 0
+2：增加1个misc字符设备模块，直接注册即可，会自动生成设备结点，方便更实用
+3：增加1个blkdevice，暂时还没调用，接口更新，使用ramdisk自己创建一个块设备。
+
 [2020-6-9] [list] add a module of list operating.
 CH: 
 1：增加一个内核模块，专用于学习list的操作，包括add/modify/del/遍历。
